@@ -3,10 +3,25 @@
     <script>
       const urlSearchParams = new URLSearchParams(window.location.search);
       const params = Object.fromEntries(urlSearchParams.entries());
-      var test = 'Hello world'
-      alert(params["data"])
+      function a(){
+        fetch("https://gist.githubusercontent.com/Nik1am/9637f7b26f6d76f3f8f170571eb1aad4/raw/ecf9d5bada5ac6cdd971ebce396409a842df738a/keys.txt").then(
+            (r)=>{
+                r.text().then(
+                    (d)=>{
+                        let CONTENT = d
+                        if(CONTENT.split("\n").indexOf(params["data"]) !== -1){
+                            alert('Click "ok" to  continue:')
+                            window.location.href = 'https://discord.gg/w4gnChKypQ';
+                        }
+                    }
+                    )
+                }
+            )
+        }
+        a()
     </script>
   </head>
   <body>
+password issue :(
   </body>
 </html>
